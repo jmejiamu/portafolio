@@ -75,6 +75,11 @@
                 href="https://drive.google.com/file/d/1ni8NBPpTnungmO3cPJkrXZZ5syqGb5Cg/view?usp=sharing">
                 View Resume
               </a>
+              <div><span class="px-2"></span></div>
+              <a class="cta-btn cta-btn--resume random-projects"
+                href="#random-projects"> 
+                Random Projects
+              </a>
             </span>
           </div>
         </div>
@@ -775,6 +780,42 @@
           </div>
         </div>
         <!-- /END Project -->
+
+        <!-- Each .row is a project -->
+        <h3 class="project-wrapper__text-title" id="random-projects">Random Projects</h3>
+        <div class="row">
+          <div class="col-lg-4 col-sm-12">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Mobile-Controlled LED Light</h3>
+              <div>
+                <p class="mb-4">
+                 Built a real-time light controller using React Native, Node.js, and Arduino Mega 2560. 
+                 The mobile app communicates with a backend server over Socket.IO or rest api, which relays commands to an Arduino Mega over serial using Johnny-Five. This turns an LED light on or off based on user input.
+                  </br>
+                  </br>
+                  Tech Stack: React Native, Node.js, Johnny-Five, Arduino Mega 2560, Socket.IO
+                </p>
+              </div>
+              <a class="cta-btn cta-btn--hero" href="#" id="open-led-modal">
+                See Live
+              </a>
+               <!-- <a target="_blank" class="cta-btn cta-btn--hero"
+                href="">
+                Source Code
+              </a> -->
+            </div>
+          </div>
+          <div class="col-lg-8 col-sm-12">
+            <div class="project-wrapper__image">
+              <a href="#!" target="_blank">
+                <div data-tilt class="thumbnail rounded">
+                  <img class="img-fluid" src="./assets/mobile-Controlled-LED-Light.png" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- /END Project -->
       </div>
     </div>
   </section>
@@ -831,6 +872,36 @@
     </div>
   </footer>
   <!-- /END Footer Section -->
+
+  <!-- Modal for LED Light Project -->
+  <div id="ledModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
+    <div style="position:relative; background:#fff; padding:1rem; border-radius:8px; max-width:90vw; max-height:90vh;">
+      <button id="close-led-modal" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:2rem; cursor:pointer;">&times;</button>
+      <iframe src="https://drive.google.com/file/d/1D3K6frA3JzMKxFprtsu8bsYsw4VCK89j/preview" width="640" height="480" allow="autoplay" style="max-width:100%; max-height:70vh;"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Modal open/close logic
+    document.addEventListener('DOMContentLoaded', function () {
+      var openBtn = document.getElementById('open-led-modal');
+      var modal = document.getElementById('ledModal');
+      var closeBtn = document.getElementById('close-led-modal');
+      if (openBtn && modal && closeBtn) {
+        openBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          modal.style.display = 'flex';
+        });
+        closeBtn.addEventListener('click', function () {
+          modal.style.display = 'none';
+        });
+        // Optional: close modal when clicking outside the modal content
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
