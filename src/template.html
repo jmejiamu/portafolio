@@ -117,7 +117,7 @@
                 </p>
 
               </div>
-              <a target="_blank" class="cta-btn cta-btn--hero" href="https://drive.google.com/file/d/1Fiz7OHyYdhKrov5lIQZheQXxJCL2FCmn/view">
+              <a class="cta-btn cta-btn--hero" href="#" id="open-walksmart-modal">
                 See Live
               </a>
               <a target="_blank" class="cta-btn cta-btn--hero" href="https://github.com/jmejiamu/walk-smart">
@@ -924,6 +924,14 @@
     </div>
   </div>
 
+  <!-- Modal for Walk Smart Project -->
+  <div id="walksmartModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
+    <div style="position:relative; background:#fff; padding:1rem; border-radius:8px; max-width:95vw; max-height:95vh;">
+      <button id="close-walksmart-modal" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:2rem; cursor:pointer;">&times;</button>
+      <iframe src="https://drive.google.com/file/d/1liIFndHm54qTtji3XNrWhwIjmva6IWWJ/preview" width="900" height="600" allow="autoplay" style="max-width:90vw; max-height:80vh;"></iframe>
+    </div>
+  </div>
+
   <script>
     // Modal open/close logic
     document.addEventListener('DOMContentLoaded', function () {
@@ -958,6 +966,23 @@
         });
         taskModal.addEventListener('click', function (e) {
           if (e.target === taskModal) taskModal.style.display = 'none';
+        });
+      }
+
+      // Walk Smart modal logic
+      var openWalksmartBtn = document.getElementById('open-walksmart-modal');
+      var walksmartModal = document.getElementById('walksmartModal');
+      var closeWalksmartBtn = document.getElementById('close-walksmart-modal');
+      if (openWalksmartBtn && walksmartModal && closeWalksmartBtn) {
+        openWalksmartBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          walksmartModal.style.display = 'flex';
+        });
+        closeWalksmartBtn.addEventListener('click', function () {
+          walksmartModal.style.display = 'none';
+        });
+        walksmartModal.addEventListener('click', function (e) {
+          if (e.target === walksmartModal) walksmartModal.style.display = 'none';
         });
       }
     });
