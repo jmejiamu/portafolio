@@ -816,6 +816,41 @@
           </div>
         </div>
         <!-- /END Project -->
+        <!-- Each .row is a project -->
+        <div class="row">
+          <div class="col-lg-4 col-sm-12">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">📱 Task Status Tracker with React Native & Arduino Mega</h3>
+              <div>
+                <p class="mb-4">
+                 This project merges mobile UX with real-world feedback using an LCD.
+                I built a to-do list app in React Native that updates task statuses.
+                 When a task is marked as “In Progress” or “Completed,” a Node.js server sends the update to an Arduino Mega via serial, which then updates an LCD screen with the status.
+                  </br>
+                  </br>
+                  Tech Stack: React Native, Node.js, Johnny-Five, Arduino Mega 2560, Socket.IO
+                </p>
+              </div>
+              <a class="cta-btn cta-btn--hero" href="#" id="open-task-modal">
+                See Live
+              </a>
+               <!-- <a target="_blank" class="cta-btn cta-btn--hero"
+                href="">
+                Source Code
+              </a> -->
+            </div>
+          </div>
+          <div class="col-lg-8 col-sm-12">
+            <div class="project-wrapper__image">
+              <a href="#!" target="_blank">
+                <div data-tilt class="thumbnail rounded">
+                  <img class="img-fluid" src="./assets/lcd.png" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- /END Project -->
       </div>
     </div>
   </section>
@@ -875,9 +910,17 @@
 
   <!-- Modal for LED Light Project -->
   <div id="ledModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
-    <div style="position:relative; background:#fff; padding:1rem; border-radius:8px; max-width:90vw; max-height:90vh;">
+    <div style="position:relative; background:#fff; padding:1rem; border-radius:8px; max-width:95vw; max-height:95vh;">
       <button id="close-led-modal" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:2rem; cursor:pointer;">&times;</button>
-      <iframe src="https://drive.google.com/file/d/1D3K6frA3JzMKxFprtsu8bsYsw4VCK89j/preview" width="640" height="480" allow="autoplay" style="max-width:100%; max-height:70vh;"></iframe>
+      <iframe src="https://drive.google.com/file/d/1D3K6frA3JzMKxFprtsu8bsYsw4VCK89j/preview" width="900" height="600" allow="autoplay" style="max-width:90vw; max-height:80vh;"></iframe>
+    </div>
+  </div>
+
+  <!-- Modal for Task Status Tracker Project -->
+  <div id="taskModal" style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
+    <div style="position:relative; background:#fff; padding:1rem; border-radius:8px; max-width:95vw; max-height:95vh;">
+      <button id="close-task-modal" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:2rem; cursor:pointer;">&times;</button>
+      <iframe src="https://drive.google.com/file/d/1yh6zYrgjkUKK_24Cbmp_q0agyytLqzcD/preview" width="900" height="600" allow="autoplay" style="max-width:90vw; max-height:80vh;"></iframe>
     </div>
   </div>
 
@@ -898,6 +941,23 @@
         // Optional: close modal when clicking outside the modal content
         modal.addEventListener('click', function (e) {
           if (e.target === modal) modal.style.display = 'none';
+        });
+      }
+
+      // Task modal logic
+      var openTaskBtn = document.getElementById('open-task-modal');
+      var taskModal = document.getElementById('taskModal');
+      var closeTaskBtn = document.getElementById('close-task-modal');
+      if (openTaskBtn && taskModal && closeTaskBtn) {
+        openTaskBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          taskModal.style.display = 'flex';
+        });
+        closeTaskBtn.addEventListener('click', function () {
+          taskModal.style.display = 'none';
+        });
+        taskModal.addEventListener('click', function (e) {
+          if (e.target === taskModal) taskModal.style.display = 'none';
         });
       }
     });
